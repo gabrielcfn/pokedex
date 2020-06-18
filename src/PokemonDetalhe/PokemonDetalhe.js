@@ -6,9 +6,11 @@ const PokemonDetalhe = (props) => {
         pokemonSelecionado: {}
       });
 
+    const entry_number = props.match.params.entry_number;
+
     useEffect( () => {
         (async () => {
-            const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${props.entry_number}`)
+            const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${entry_number}`)
                 .then((res) => {
                     return res.json();
                 })
