@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Pokemon from './Pokemon/Pokemon';
 import PokemonDetalhe from './PokemonDetalhe/PokemonDetalhe';
+import PokemonLista from './PokemonLista/PokemonLista';
 
 /*
 Ver como fazer com useEffect e useState
@@ -12,29 +13,11 @@ Ver como fazer com useEffect e useState
 
 
 const App = props => {
-    const [pokemonsState, setPokemonsState] = useState({
-      pokemons: []
-    });
 
     const [infoState, setInfoState] = useState({
         versao: '1.0',
-        url: `https://pokeapi.co/api/v2/pokedex/2`
     })
 
-    useEffect(() => {
-      ( async () => {
-        const pokedex = await fetch(infoState.url)
-          .then((res) => {
-            return res.json()
-          }) 
-          .then((resposta) => {
-            console.log('fim da requisição no app js');
-            return resposta.pokemon_entries;
-          })
-          setPokemonsState({pokemons: pokedex})
-      })()    
-      
-    }, [infoState.url]);
 
     const switchNameHandler = (novoNome = 'asaasas') => {
       // setPokemonsState({
@@ -50,13 +33,7 @@ const App = props => {
         <div className="App">
           <h1>Olá, estou usando React</h1>
           <button onClick={()=>switchNameHandler()}>Mudar Nome</button>
-          <div className="container-pai">
-          {
-            pokemonsState.pokemons.map((pokemon, idx) => {
-              return <Pokemon key={idx} pokemon={pokemon}></Pokemon>
-            })
-          }
-          </div>
+          
         <h6>Versão: {infoState.versao}</h6>
         </div>
       </BrowserRouter>
