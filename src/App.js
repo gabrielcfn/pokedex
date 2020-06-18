@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import Pokemon from './Pokemon/Pokemon';
+import PokemonDetalhe from './PokemonDetalhe/PokemonDetalhe';
 
 /*
 Ver como fazer com useEffect e useState
@@ -46,12 +47,14 @@ const App = props => {
       <div className="App">
         <h1>Olá, estou usando React</h1>
         <button onClick={()=>switchNameHandler()}>Mudar Nome</button>
-        {
+        <div className="container-pai">
+        {/*
           pokemonsState.pokemons.map((pokemon, idx) => {
             return <Pokemon key={idx} pokemon={pokemon}></Pokemon>
           })
-        }
-        {/* <Pokemon poke={pokemonsState.pokemons[0]} click={switchNameHandler.bind(this, 'Torchic')}></Pokemon> */}
+        */}
+        <PokemonDetalhe entry_number="53"></PokemonDetalhe>
+        </div>
       <h6>Versão: {infoState.versao}</h6>
       </div>
     );
