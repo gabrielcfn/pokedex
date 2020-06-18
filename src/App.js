@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import Pokemon from './Pokemon/Pokemon';
 import PokemonDetalhe from './PokemonDetalhe/PokemonDetalhe';
 
@@ -44,18 +46,21 @@ const App = props => {
     }
 
     return (
-      <div className="App">
-        <h1>Olá, estou usando React</h1>
-        <button onClick={()=>switchNameHandler()}>Mudar Nome</button>
-        <div className="container-pai">
-        {
-          pokemonsState.pokemons.map((pokemon, idx) => {
-            return <Pokemon key={idx} pokemon={pokemon}></Pokemon>
-          })
-        }
+      <BrowserRouter>
+        <div className="App">
+          <h1>Olá, estou usando React</h1>
+          <button onClick={()=>switchNameHandler()}>Mudar Nome</button>
+          <div className="container-pai">
+          {
+            pokemonsState.pokemons.map((pokemon, idx) => {
+              return <Pokemon key={idx} pokemon={pokemon}></Pokemon>
+            })
+          }
+          </div>
+        <h6>Versão: {infoState.versao}</h6>
         </div>
-      <h6>Versão: {infoState.versao}</h6>
-      </div>
+      </BrowserRouter>
+
     );
     
 }
