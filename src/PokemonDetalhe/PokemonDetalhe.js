@@ -15,12 +15,11 @@ const PokemonDetalhe = (props) => {
                     return res.json();
                 })
                 .then((resposta) => {
-                    console.log('resposta => ', resposta)
                     return resposta
                 })
                 setPokemonSelecionadoState({pokemonSelecionado: pokemon})
         })()
-    }, [props.entry_number])
+    }, [entry_number])
 
     return(
         <div>
