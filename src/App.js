@@ -48,12 +48,11 @@ const App = props => {
         <h1>Olá, estou usando React</h1>
         <button onClick={()=>switchNameHandler()}>Mudar Nome</button>
         <div className="container-pai">
-        {/*
+        {
           pokemonsState.pokemons.map((pokemon, idx) => {
             return <Pokemon key={idx} pokemon={pokemon}></Pokemon>
           })
-        */}
-        <PokemonDetalhe entry_number="53"></PokemonDetalhe>
+        }
         </div>
       <h6>Versão: {infoState.versao}</h6>
       </div>
