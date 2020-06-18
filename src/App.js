@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import Pokemon from './Pokemon/Pokemon';
 import PokemonDetalhe from './PokemonDetalhe/PokemonDetalhe';
 import PokemonLista from './PokemonLista/PokemonLista';
 
@@ -19,20 +18,16 @@ const App = props => {
     })
 
 
-    const switchNameHandler = (novoNome = 'asaasas') => {
-      // setPokemonsState({
-      //   pokemons: [
-      //     {name: novoNome, id:'004', flavor: 'Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.'},
-      //     {name: 'Charmeleon', id:'005', flavor: 'When it swings its burning tail, it elevates the temperature to unbearably high levels.'}
-      //   ]
-      // });
-    }
-
     return (
       <BrowserRouter>
         <div className="App">
           <h1>Olá, estou usando React</h1>
-          <button onClick={()=>switchNameHandler()}>Mudar Nome</button>
+          <ul className="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/111">Poke 111</a></li>
+          </ul>
+          <Route path="/:entry_number" render={() => <PokemonDetalhe entry_number="111"></PokemonDetalhe>}></Route>
+          <Route path="/" exact render={() => <PokemonLista></PokemonLista>}></Route>
           
         <h6>Versão: {infoState.versao}</h6>
         </div>
